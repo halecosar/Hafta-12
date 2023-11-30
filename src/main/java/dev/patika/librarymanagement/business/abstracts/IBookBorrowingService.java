@@ -9,7 +9,7 @@ import java.util.List;
 public interface IBookBorrowingService {
     BookBorrowing save (BookBorrowing bookBorrowing);
     BookBorrowing update(BookBorrowing bookBorrowing);
-    BookBorrowing getById(int id);
-    void delete(int id);
+    BookBorrowing getById(Long id);
+    void delete(Long id);
     List<BookBorrowing> findAll();
 }

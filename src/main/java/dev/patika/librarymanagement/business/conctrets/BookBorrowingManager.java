@@ -36,12 +36,12 @@ public class BookBorrowingManager implements IBookBorrowingService {
     }
 
     @Override
-    public BookBorrowing getById(int id) {
+    public BookBorrowing getById(Long id) {
         return this.bookBorrowingRepo.findById(id).orElseThrow();
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         this.bookBorrowingRepo.delete(this.getById(id));
     }
 

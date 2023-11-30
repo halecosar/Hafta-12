@@ -10,11 +10,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class BookBorrowingUpdateRequest {
 
-    private int id;
+    private Long id;
 
     private String borrowerName;
 
-    private LocalDate borrowingDate;
-
     private long bookId;
+
+    private LocalDate returnDate;
 }
