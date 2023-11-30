@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table (name= "publishers")
 @Data
@@ -22,7 +24,8 @@ public class Publisher {
     private String name;
     @Column (name= "establish_year")
     private  int establishmentYear;
-    @ Column (name= "address")
+    @Column (name= "address")
     private String address;
-
+    @OneToMany(mappedBy = "publisher",cascade = CascadeType.REMOVE)
+    private List<Book> bookList;
 }

@@ -15,29 +15,27 @@ public class AuthorController {
 
     public AuthorController(IAuthorService authorService, IAuthorRepo authorRepo) {
         this.authorService = authorService;
-
-
     }
 
-    @PostMapping()
+    @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Author save(@RequestBody Author author) { //entitiy'i gönderdik.
         // Author author1 = this.modelMapper.map(author, Author.class); //entitiydeki propertyler ile dtodak ropertyleri mapleme işlemi
         return this.authorService.save(author);
     }
-    @PutMapping
-    @ResponseStatus()
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.OK)
     public Author update (@RequestBody Author author) {
         return this.authorService.update(author);
     }
 
-    @DeleteMapping
-    @ResponseStatus
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.OK)
     void delete (@PathVariable("id") int id){
         this.authorService.delete(id);
     }
     @GetMapping("/getById/{id}")
-    @ResponseStatus
+    @ResponseStatus(HttpStatus.OK)
     public Author getById(@PathVariable("id") int id) {
        return this.authorService.getById(id);
     }

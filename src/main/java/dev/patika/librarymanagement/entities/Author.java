@@ -30,8 +30,4 @@ public class Author {
     private LocalDate birthday;
     @Column(name = "author_country")
     private String country;
-
-   // @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE)
-   // @JsonIgnore
-    //private List<Book> bookList;
 }
