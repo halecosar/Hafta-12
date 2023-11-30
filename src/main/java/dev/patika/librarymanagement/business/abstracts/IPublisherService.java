@@ -7,7 +7,7 @@ import java.util.List;
 public interface IPublisherService {
     Publisher save (Publisher publisher);
     Publisher update (Publisher publisher);
-    Publisher getById(int id);
-    void delete(int id);
+    Publisher getById(Long id);
+    void delete(Long id);
     List<Publisher> findAll();
 }

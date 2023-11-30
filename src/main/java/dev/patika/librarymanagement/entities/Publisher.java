@@ -16,15 +16,14 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "publisher_id", columnDefinition = "serial")
-    @NotNull
     private Long id;
 
-    @Column(name = "publisher_name", unique = true)
+    @Column(name = "publisher_name")
+    @NotNull
     private String name;
 
     @Column(name = "establish_year")
@@ -33,7 +32,7 @@ public class Publisher {
     @Column(name = "address")
     private String address;
 
-    @OneToMany (mappedBy = "publisher", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+   @OneToMany (mappedBy = "publisher")
     @JsonIgnore
     private List<Book> bookList;
 }

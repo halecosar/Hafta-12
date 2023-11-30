@@ -26,12 +26,12 @@ public class PublisherManager implements IPublisherService {
     }
 
     @Override
-    public Publisher getById(int id) {
+    public Publisher getById(Long id) {
         return this.publisherRepo.findById(id).orElseThrow();
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         this.publisherRepo.delete(this.getById(id));
     }
 

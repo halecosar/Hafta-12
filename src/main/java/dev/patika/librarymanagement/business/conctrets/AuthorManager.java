@@ -21,7 +21,7 @@ public class AuthorManager implements IAuthorService {
     @Override
     public Author save(Author author) {
 
-        return this.iAuthorRepo.save(author); //yazar kayıt etme işlemi.
+        return this.iAuthorRepo.save(author);
     }
 
     @Override

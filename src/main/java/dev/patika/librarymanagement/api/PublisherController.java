@@ -3,6 +3,7 @@ package dev.patika.librarymanagement.api;
 import dev.patika.librarymanagement.business.abstracts.IPublisherService;
 import dev.patika.librarymanagement.core.config.modelMapper.IModelMapperService;
 import dev.patika.librarymanagement.dto.request.PublisherSaveRequest;
+import dev.patika.librarymanagement.entities.Author;
 import dev.patika.librarymanagement.entities.Publisher;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,7 @@ public class PublisherController {
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Publisher save(@Valid @RequestBody PublisherSaveRequest publisherSaveRequest) {
-        Publisher publisher = this.modelMapperService.forRequest().map(publisherSaveRequest, Publisher.class);
+    public Publisher save(@RequestBody Publisher publisher) {
         return this.publisherService.save(publisher);
     }
 
@@ -37,13 +37,13 @@ public class PublisherController {
 
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.OK)
-    void delete(@PathVariable("id") int id) {
+    void delete(@PathVariable("id") Long id) {
         this.publisherService.delete(id);
     }
 
     @GetMapping("/getById/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Publisher getById(@PathVariable("id") int id) {
+    public Publisher getById(@PathVariable("id") Long id) {
         return this.publisherService.getById(id);
     }
 }
