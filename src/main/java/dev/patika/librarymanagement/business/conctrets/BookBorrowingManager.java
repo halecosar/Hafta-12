@@ -12,9 +12,8 @@ import java.util.List;
 public class BookBorrowingManager implements IBookBorrowingService {
     private final IBookBorrowingRepo bookBorrowingRepo;
 
-    public BookBorrowingManager(IBookRepo bookRepo, IBookBorrowingRepo bookBorrowingRepo) {
+    public BookBorrowingManager(IBookBorrowingRepo bookBorrowingRepo) {
         this.bookBorrowingRepo = bookBorrowingRepo;
-
     }
 
     @Override

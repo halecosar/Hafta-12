@@ -26,10 +26,21 @@ public class BookBorrowingController {
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.OK)
     public BookBorrowingUpdateResponse update(@RequestBody BookBorrowingUpdateRequest bookBorrowingupdateRequest) {
-        BookBorrowing borrowing = this.modelMapperService.forRequest().map(bookBorrowingupdateRequest, BookBorrowing.class);
-        this.bookBorrowingService.update(borrowing);
-        BookBorrowingUpdateResponse bookBorrowingUpdateResponse = this.modelMapperService.forResponse().map(borrowing, BookBorrowingUpdateResponse.class);
-        return bookBorrowingUpdateResponse;
+        BookBorrowing baseBookBorrowing = this.bookBorrowingService.getById(bookBorrowingupdateRequest.getId());
+        if (baseBookBorrowing!= null){
+            baseBookBorrowing.setBorrowerName(bookBorrowingupdateRequest.getBorrowerName());
+            baseBookBorrowing.setBorrowingDate(bookBorrowingupdateRequest.getBorrowingDate());
+            baseBookBorrowing.getBook().setId(bookBorrowingupdateRequest.getBookId());
+
+            this.bookBorrowingService.update(baseBookBorrowing);
+
+            BookBorrowingUpdateResponse bookBorrowingUpdateResponse = this.modelMapperService.forResponse().map(baseBookBorrowing, BookBorrowingUpdateResponse.class);
+            return bookBorrowingUpdateResponse;
+        }
+        else {
+            return null;
+        }
+
     }
 
     @PostMapping("/save")

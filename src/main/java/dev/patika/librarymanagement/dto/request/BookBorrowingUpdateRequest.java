@@ -3,22 +3,18 @@ package dev.patika.librarymanagement.dto.request;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
 public class BookBorrowingUpdateRequest {
 
-    private long id;
+    private int id;
 
-    @NotBlank
     private String borrowerName;
 
-    @NotBlank
-    private String borrowingDate;
+    private LocalDate borrowingDate;
 
-    @NotBlank
     private long bookId;
 }
