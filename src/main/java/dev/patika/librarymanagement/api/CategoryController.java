@@ -36,8 +36,8 @@ import org.springframework.web.bind.annotation.*;
 
         @DeleteMapping("/delete/{id}")
         @ResponseStatus(HttpStatus.OK)
-        void delete(@PathVariable("id") int id) {
-            this.categoryService.delete(id);
+        String delete(@PathVariable("id") int id) {
+           return this.categoryService.delete(id);
         }
 
         @GetMapping("/getById/{id}")

@@ -31,12 +31,12 @@ public class AuthorController {
 
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.OK)
-    void delete (@PathVariable("id") int id){
+    void delete (@PathVariable("id") Long id){
         this.authorService.delete(id);
     }
     @GetMapping("/getById/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Author getById(@PathVariable("id") int id) {
+    public Author getById(@PathVariable("id") Long id) {
        return this.authorService.getById(id);
     }
 }

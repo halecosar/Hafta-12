@@ -9,6 +9,6 @@ public interface ICategoryService {
     Category save (Category category);
     Category update (Category category);
     Category getById(int id);
-    void delete(int id);
+    String delete(int id);
     List<Category> findAll();
 }

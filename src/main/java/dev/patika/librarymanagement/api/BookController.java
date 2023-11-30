@@ -33,14 +33,15 @@ public class BookController {
 
     @DeleteMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.OK)
-    void delete(@PathVariable("id") int id) {
+    void delete(@PathVariable("id") Long id) {
         this.bookService.delete(id);
     }
 
     @GetMapping("/getById/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Book getById(@PathVariable("id") int id) {
-        return this.bookService.getById(id);
+    public Book getById(@PathVariable("id") Long id) {
+        Book book= this.bookService.getById(id);
+        return book;
     }
 }
 

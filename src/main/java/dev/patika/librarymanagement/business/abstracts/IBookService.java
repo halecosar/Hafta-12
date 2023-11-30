@@ -9,7 +9,7 @@ public interface IBookService {
 
     Book save (Book book);
     Book update (Book book);
-    Book getById(int id);
-    void delete(int id);
+    Book getById(Long id);
+    void delete(Long id);
     List<Book> findAll();
 }

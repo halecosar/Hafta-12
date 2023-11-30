@@ -28,7 +28,6 @@ public class BookBorrowing {
     @NotNull
     private String borrowerMail;
 
-
     @Temporal(TemporalType.DATE)
     @Column(name = "borrowing_on_date")
     private LocalDate borrowingDate;
@@ -37,7 +36,7 @@ public class BookBorrowing {
     @Column(name = "borrowreturn_date")
     private LocalDate returnDate;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "borrowing_book_id", referencedColumnName = "book_id")
     private Book book;
 }

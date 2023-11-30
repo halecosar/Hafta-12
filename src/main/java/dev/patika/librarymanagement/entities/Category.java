@@ -20,11 +20,14 @@ public class Category {
     @Column(name = "category_id", columnDefinition = "serial")
     @NotNull
     private int id;
+
     @Column (name = "category_name" , unique = true)
     private String name;
 
+    @Column (name = "category_description")
+    private String categoryDescription;
+
     @ManyToMany(mappedBy = "categoryList")
-    @JsonIgnore
     private List<Book> bookList;
 
 }

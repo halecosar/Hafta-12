@@ -27,12 +27,13 @@ public class BookManager implements IBookService {
     }
 
     @Override
-    public Book getById(int id) {
-        return this.iBookRepo.getById(id);
+    public Book getById(Long id) {
+        Book book= this.iBookRepo.findById(id).orElse(null);
+        return book;
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
         this.iBookRepo.deleteById(id);
     }
 

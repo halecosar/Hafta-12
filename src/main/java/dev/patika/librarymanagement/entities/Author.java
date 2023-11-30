@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,14 +21,19 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "author_id", columnDefinition = "serial")
     private Long id;
+
     @Column(name = "author_name")
     @NotNull
     private String name;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "author_birthday")
-
     private LocalDate birthday;
+
     @Column(name = "author_country")
     private String country;
+
+    @OneToMany(mappedBy = "author")
+    @JsonIgnore
+    private List<Book> bookList;
 }
