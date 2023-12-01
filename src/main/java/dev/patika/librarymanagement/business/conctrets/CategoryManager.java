@@ -34,7 +34,7 @@ public class CategoryManager implements ICategoryService {
     }
 
     @Override
-    public String delete(int id) {
+    public String delete(int id) { //Kategori silme işlemi
         Category category = this.categoryRepo.findById(id).orElseThrow();
         if (category!=null  && category.getBookList().size()>0){
              return "Bu Kategoriye Ait Kitaplar Olduğu İçin Silme İşlemi Yapılamaz.";

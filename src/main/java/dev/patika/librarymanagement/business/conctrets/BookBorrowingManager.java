@@ -20,7 +20,7 @@ public class BookBorrowingManager implements IBookBorrowingService {
     }
 
     @Override
-    public BookBorrowing save(BookBorrowing bookBorrowing) {
+    public BookBorrowing save(BookBorrowing bookBorrowing) { //bir kitabın ödünç verilme senaryosu.
         Book book = this.bookRepo.findById(bookBorrowing.getBook().getId()).orElseThrow();
         if (book.getStock() > 0) {
             return this.bookBorrowingRepo.save(bookBorrowing);

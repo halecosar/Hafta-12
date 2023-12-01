@@ -34,6 +34,6 @@ public class Author {
     private String country;
 
     @OneToMany(mappedBy = "author")
-    @JsonIgnore
+    @JsonIgnore // Listlerde jsonignore kullanılmazsa stackoverflow hatası geliyor.
     private List<Book> bookList;
 }

@@ -25,7 +25,7 @@ public class BookBorrowingController {
     }
 
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.OK) //e-mail girişi olmayacak şekilde Request ve response dto kullanıldı.Maplendi.
     public BookBorrowingUpdateResponse update(@Valid @RequestBody BookBorrowingUpdateRequest bookBorrowingupdateRequest) {
 
         BookBorrowing bookBorrowing = this.modelMapperService.forRequest().map(bookBorrowingupdateRequest, BookBorrowing.class);
